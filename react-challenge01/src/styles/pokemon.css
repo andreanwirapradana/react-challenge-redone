@@ -1,0 +1,26 @@
+.container-main {
+    display: flex;
+    /* flex-direction: column; */
+    /* flex: 1; */
+    border: 2px solid black;
+    /* margin: auto; */
+    /* align-items: center;
+    align-content: center; */
+    padding: 10vw;
+    margin-bottom: 5vh;
+    text-align: center;
+}
+
+/* .container-inner {
+    border: 1px solid purple;
+    flex: 1;
+} */
+
+.name-text {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.image-pokemon {
+    width: 20vh;
+}
