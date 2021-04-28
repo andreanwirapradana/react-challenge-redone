@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import { useHistory, useParams } from "react-router-dom";
+import {useDispatch} from 'react-redux';
+import {addFav} from '../store/actions';
 
 function Home() {
     let [pokemon, setPokemon] = useState({});
     let history = useHistory();
     const {id} = useParams();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         let url = `https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -20,6 +23,10 @@ function Home() {
 
     const goHome = () => {
         history.push('/');
+    }
+
+    const addPokemon = (data) => {
+        addFav(data, dispatch)
     }
 
     if (!pokemon.name) {
@@ -72,6 +79,7 @@ function Home() {
                     }
                 </table>
             </div>
+            <button onClick={() => addPokemon(pokemon)}>Add To Favourite</button>
             <button onClick={goHome}>Go Home</button>
         </div>
     )

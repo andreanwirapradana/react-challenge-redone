@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import {login} from '../store/actions';
+import {useDispatch} from 'react-redux';
 
 function SignIn() {
     let [user, setUser] = useState({});
+    const dispatch = useDispatch();
 
     const handleForm = (event) => {
         event.preventDefault();
@@ -13,6 +16,8 @@ function SignIn() {
         obj.userName = event.target[0].value
         obj.email = event.target[1].value
         setUser(obj);
+        login(obj.userName, obj.email, dispatch)
+
     }
 
     return (
