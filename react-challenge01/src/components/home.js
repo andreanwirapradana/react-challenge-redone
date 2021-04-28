@@ -3,6 +3,7 @@ import {Link, useHistory} from 'react-router-dom';
 
 function Detail() {
     let [pokemons, setPokemons] = useState([]);
+    let [user, setUser] = useState('');
     const history = useHistory();
 
     useEffect(() => {
@@ -56,6 +57,7 @@ function Detail() {
                     })
                 }
             </table>
+            <button><Link to='/signin'>Sign In</Link></button>
         </div>
     )
 };

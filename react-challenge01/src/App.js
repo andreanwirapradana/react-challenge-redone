@@ -6,6 +6,9 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 // Components
 import Home from './components/home';
 import Detail from './components/detail';
+import PrivateRoute from './components/PrivateRoute';
+import User from './components/User';
+import SignIn from './components/Login';
 
 function App() {
   return (
@@ -14,9 +17,15 @@ function App() {
         <Route path="/pokemon/:id" >
           <Detail />
         </Route>
-        <Route path="/" >
+        <Route exact path="/" >
           <Home />
         </Route>
+        <Route exact path="/signin" >
+          <SignIn />
+        </Route>
+        <PrivateRoute path="/user">
+          <User />
+        </PrivateRoute>
       </Switch>
     </Router>
   );
